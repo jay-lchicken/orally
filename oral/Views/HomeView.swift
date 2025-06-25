@@ -35,7 +35,13 @@ struct HomeView: View {
                     .cornerRadius(10)
                     .padding()
             Button(action: {
-                //Action type of stuff u wanna add becoz i forgot  how to add nav link or somthing
+                NavigationLink(destination: ContentView()) {
+                    Text("Go to Detail View")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
             }) {
                 Text("Click to start your practice")
             }
