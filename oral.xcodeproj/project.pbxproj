@@ -12,10 +12,12 @@
 		06D9E0A22E03B7F7002F64B1 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 06D9E0A12E03B7F7002F64B1 /* FirebaseCore */; };
 		06D9E0A42E03B7F7002F64B1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 06D9E0A32E03B7F7002F64B1 /* FirebaseFirestore */; };
 		06D9E0A62E03B7F7002F64B1 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 06D9E0A52E03B7F7002F64B1 /* FirebaseFunctions */; };
+		53A5CEA92E1BE93400EAE849 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A5CEA82E1BE93400EAE849 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06D9E08E2E03B605002F64B1 /* oral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oral.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53A5CEA82E1BE93400EAE849 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,6 +47,7 @@
 		06D9E0852E03B605002F64B1 = {
 			isa = PBXGroup;
 			children = (
+				53A5CEA82E1BE93400EAE849 /* MainTabView.swift */,
 				06D9E0902E03B605002F64B1 /* oral */,
 				06D9E08F2E03B605002F64B1 /* Products */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A5CEA92E1BE93400EAE849 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
