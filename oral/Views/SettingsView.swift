@@ -42,10 +42,15 @@ struct SettingsView: View {
                     VStack(spacing: 16) {
                         SettingsCard(icon: "moon.fill", title: "Dark Mode", toggleOn: $isDarkMode)
 
+                        NavigationLink(destination: RecentlyDeletedView(viewModel: NotesViewModel())) {
+                            SettingsCard(icon: "trash", title: "Recently Deleted")
+                        }
+
                         Button(action: {
                             logout()
                         }) {
                             SettingsCard(icon: "rectangle.portrait.and.arrow.right", title: "Log Out")
+                                .foregroundColor(.red)
                         }
                     }
                     .padding(.horizontal)

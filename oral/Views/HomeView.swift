@@ -69,7 +69,7 @@ struct HomeView: View {
 
                     // Glass Cards
                     VStack(spacing: 16) {
-                        NavigationLink(destination: PracticeView1()) {
+                        NavigationLink(destination: StartPracticeView()) {
                             HomeGlassCard(icon: "mic.fill", title: "Start Practice", subtitle: "Improve your oral skills to ace the test")
                         }
 
