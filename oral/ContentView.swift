@@ -7,7 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
-
+import Combine
 class MainViewViewModel: ObservableObject {
     @Published var currentUserId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?

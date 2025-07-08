@@ -73,9 +73,9 @@ struct HomeView: View {
                             HomeGlassCard(icon: "mic.fill", title: "Start Practice", subtitle: "Improve your oral skills to ace the test")
                         }
 
-                        NavigationLink(destination: HistoryView()) {
-                            HomeGlassCard(icon: "clock.fill", title: "Review History", subtitle: "See your progress over time")
-                        }
+//                        NavigationLink(destination: HistoryView()) {
+//                            HomeGlassCard(icon: "clock.fill", title: "Review History", subtitle: "See your progress over time")
+//                        }
 
                         HomeGlassCard(icon: "sparkles", title: "Tip of the Day", subtitle: "Get a smart oral tip")
                     }
