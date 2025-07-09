@@ -82,7 +82,7 @@ struct SettingsView: View {
     private func logout() {
         do {
             try Auth.auth().signOut()
-            // You can also reset any @AppStorage or @StateObject values here if needed
+            
         } catch {
             print("Logout failed: \(error.localizedDescription)")
         }

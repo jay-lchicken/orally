@@ -5,7 +5,7 @@
 //  Created by Abinav Gopi on 6/7/25.
 //
 
-import SwiftUI//Abinav to edit this
+import SwiftUI//Abinav to edit this after
 
 struct RewardsView: View {
     var body: some View {
