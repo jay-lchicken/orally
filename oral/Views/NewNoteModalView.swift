@@ -190,3 +190,12 @@ struct NewNoteModalView: View {
         .shadow(radius: 5)
     }
 }
+
+
+#Preview {
+    @Previewable @State var isPresented: Bool = false
+    @Previewable @State var viewModel = NotesViewModel()
+
+    
+    NewNoteModalView(isPresented: $isPresented, viewModel: viewModel)
+}

@@ -38,15 +38,19 @@ struct RecentlyDeletedView: View {
                             HStack {
                                 Image(systemName: iconName(for: note.type))
                                     .foregroundColor(.white)
+
                                 VStack(alignment: .leading) {
                                     Text(note.title)
                                         .font(.headline)
                                         .foregroundColor(.white)
-                                    Text(viewModel.dateString(note.dateDeleted ?? Date()))
+
+                                    Text(NotesViewModel.format(date: note.dateDeleted ?? Date()))
                                         .font(.caption)
                                         .foregroundColor(.white.opacity(0.7))
                                 }
+
                                 Spacer()
+
                                 HStack(spacing: 20) {
                                     Button(action: {
                                         viewModel.restoreNote(note)
@@ -54,6 +58,7 @@ struct RecentlyDeletedView: View {
                                         Image(systemName: "arrow.uturn.backward")
                                             .foregroundColor(.green)
                                     }
+
                                     Button(action: {
                                         confirmPermanentDelete(note)
                                     }) {
@@ -97,7 +102,6 @@ struct RecentlyDeletedView: View {
             viewModel.permanentlyDeleteNote(note)
         })
 
-        // Show alert in UIKit from SwiftUI
         if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let root = scene.windows.first?.rootViewController {
             root.present(alert, animated: true)
@@ -112,4 +116,19 @@ struct RecentlyDeletedView: View {
         default: return "questionmark"
         }
     }
+}
+
+// MARK: - Static Date Formatter Helper
+extension NotesViewModel {
+    static func format(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
+    }
+}
+
+// MARK: - Preview
+#Preview {
+    RecentlyDeletedView(viewModel: NotesViewModel())
 }

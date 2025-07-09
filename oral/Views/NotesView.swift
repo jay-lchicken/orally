@@ -10,11 +10,10 @@ import SwiftUI
 struct NotesView: View {
     @StateObject var viewModel = NotesViewModel()
     @State private var showingNewNoteModal = false
-
     @State private var showingFilePreview = false
     @State private var fileToPreview: URL?
     @State private var selectedNoteForDetail: Note?
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -25,7 +24,7 @@ struct NotesView: View {
                 .ignoresSafeArea()
 
                 VStack {
-                    // Search bar with magnifying glass icon and padding
+                    // Search bar
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.white.opacity(0.7))
@@ -38,11 +37,14 @@ struct NotesView: View {
                     .padding(.horizontal)
                     .padding(.top)
 
+                    // ✅ Moved outside List
+                    let filteredNotes = viewModel.notes.filter {
+                        viewModel.searchText.isEmpty ||
+                        $0.title.lowercased().contains(viewModel.searchText.lowercased())
+                    }
+
                     List {
-                        ForEach(viewModel.notes.filter {
-                            viewModel.searchText.isEmpty ||
-                            $0.title.lowercased().contains(viewModel.searchText.lowercased())
-                        }) { note in
+                        ForEach(filteredNotes) { note in
                             Button {
                                 if note.type == "text" {
                                     selectedNoteForDetail = note
@@ -83,7 +85,7 @@ struct NotesView: View {
                     }
                     .listStyle(PlainListStyle())
                     .background(Color.clear)
-                    .scrollContentBackground(.hidden) // for iOS 16+ to hide list background
+                    .scrollContentBackground(.hidden)
                 }
             }
             .navigationTitle("Notes")
@@ -120,4 +122,8 @@ struct NotesView: View {
         default: return "questionmark"
         }
     }
+}
+
+#Preview {
+    NotesView()
 }

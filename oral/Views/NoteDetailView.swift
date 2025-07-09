@@ -74,3 +74,20 @@ struct NoteDetailView: View {
         note.textContent = editedText
     }
 }
+
+#Preview {
+    let dummyNote = Note(
+        id: "1",
+        title: "Sample Note",
+        type: "text",
+        contentURL: nil,
+        textContent: "This is a sample note used for preview.",
+        dateCreated: Date(),
+        dateDeleted: nil,
+        isDeleted: false
+    )
+
+    let dummyViewModel = NotesViewModel()
+
+    return NoteDetailView(note: dummyNote, viewModel: dummyViewModel)
+}

@@ -7,7 +7,8 @@
 
 import SwiftUI
 import FirebaseFirestore
-import FirebaseStorage //Pls help correct this error
+import FirebaseStorage
+import Combine
 import FirebaseAuth
 
 struct Note: Identifiable, Codable {

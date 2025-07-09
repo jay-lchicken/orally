@@ -96,3 +96,6 @@ struct StartPracticeView: View {
     }
 }
 
+#Preview {
+    StartPracticeView()
+}
