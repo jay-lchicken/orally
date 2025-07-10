@@ -128,7 +128,6 @@ class NotesViewModel: ObservableObject {
     func permanentlyDeleteNote(_ note: Note) {
         guard let userID = Auth.auth().currentUser?.uid, let noteID = note.id else { return }
 
-        // 1. Delete file from Storage (if exists)
         if let urlString = note.contentURL, let url = URL(string: urlString) {
             let path = "notes/\(userID)/\(url.lastPathComponent)"
             storage.reference(withPath: path).delete { error in
@@ -138,7 +137,6 @@ class NotesViewModel: ObservableObject {
             }
         }
 
-        // 2. Delete Firestore document
         db.collection("users").document(userID).collection("notes").document(noteID).delete()
     }
 
@@ -174,5 +172,13 @@ class NotesViewModel: ObservableObject {
                 print("Failed to update note: \(error.localizedDescription)")
             }
         }
+    }
+
+    // ✅ NEW METHOD: Format date
+    func dateString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
     }
 }
